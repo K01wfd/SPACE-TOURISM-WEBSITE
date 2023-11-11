@@ -1,0 +1,227 @@
+/* global reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* custome props */
+:root {
+  --clr-black: 230 35% 7%;
+  --clr-blue-light: 231 77% 90%;
+  --clr-white: 0 0% 100%;
+
+  /* Typography */
+  --fs-900: clamp(8rem, 8vw + 1.6rem, 15rem);
+  --fs-800: 10rem;
+  --fs-700: 5.6rem;
+  --fs-600-main: 3.2rem;
+  --fs-600-second: 3.2rem;
+  --fs-500-main: 2.8rem;
+  --fs-500-second: 2.8rem;
+  --fs-400: 1.8rem;
+  --fs-300-main: 1.6rem;
+  --fs-300-second: 1.6rem;
+  --fs-200: 1.4rem;
+
+  /* font-families */
+  --ff-serif: 'Bellefair', serif;
+  --ff-sans-cond: 'Barlow Condensed', sans-serif;
+  --ff-sans-normal: 'Barlow', sans-serif;
+}
+@media (max-width: 76.8em) {
+  :root {
+    --fs-800: 8rem;
+    --fs-700: 4rem;
+    --fs-600-second: 2.4rem;
+    --fs-500-second: 2rem;
+    --fs-400: 1.6rem;
+    --fs-300-main: 1.4rem;
+    --fs-200: 1.4rem;
+  }
+}
+@media (max-width: 42.5em) {
+  :root {
+    --fs-800: 5.6rem;
+    --fs-700: 2.4rem;
+    --fs-600-main: 2rem;
+    --fs-600-second: 1.6rem;
+    --fs-500-second: 1.6rem;
+    --fs-400: 1.5rem;
+    --fs-300-main: 1.6rem;
+    --fs-300-second: 1.4rem;
+    --fs-200: 1.4rem;
+  }
+}
+/* font size reset */
+html {
+  font-size: 62.5%;
+}
+
+/* body setup */
+body {
+  line-height: 1.5;
+  min-height: 100vh;
+  font-size: var(--fs-400);
+  font-weight: 400;
+  font-family: var(--ff-sans-normal);
+  background: hsl(var(--clr-black));
+  color: var(--clr-white);
+}
+
+/* this makes images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+/* remove animation for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+}
+span {
+  display: inline-block;
+}
+
+/* ------------------- */
+/* UTILS */
+/* ------------------- */
+.container {
+  padding-inline: 3.2em;
+  margin-inline: auto;
+  max-width: 120.8rem;
+}
+.d-flex {
+  display: flex;
+  flex-direction: var(--flex-directions, row);
+  justify-content: var(--flex-j-content, flex-start);
+  align-items: var(flex-a-items, stretch);
+  gap: var(--flex-g, 1rem);
+}
+.d-grid {
+  display: grid;
+  column-gap: var(--g-c-gap, 1rem);
+  row-gap: var(--g-r-gap, 1rem);
+}
+.d-block {
+  display: block;
+}
+/* LAYOUT FLOW */
+.flow-y > *:where(:not(:first-child)) {
+  margin-top: var(--flow-y-space, 1rem);
+}
+.flow-y--small {
+  --flow-y-space: 2.4rem;
+}
+.flow-y--medium {
+  --flow-y-space: 4.2rem;
+}
+.flow-y--large {
+  --flow-y-space: 5.6rem;
+}
+.flow-x > *:where(:not(:first-child)) {
+  margin-left: var(--flow-x-space, 1rem);
+}
+.flow-x--small {
+  --flow-x-space: 2.4rem;
+}
+.flow-x--medium {
+  --flow-x-space: 4.2rem;
+}
+.flow-x--large {
+  --flow-x-space: 5.6rem;
+}
+/* TYPOGRAPHY */
+.ff-serif {
+  font-family: var(--ff-serif);
+}
+.ff-sans-cond {
+  font-family: var(--ff-sans-cond);
+}
+.ff-sans-normal {
+  font-family: var(--ff-sans-normal);
+}
+.fs-900 {
+  font-size: var(--fs-900);
+}
+.fs-800 {
+  font-size: var(--fs-800);
+}
+.fs-700 {
+  font-size: var(--fs-700);
+}
+.fs-600 {
+  font-size: var(--fs-600);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-200 {
+  font-size: var(--fs-200);
+}
+.letter-spacing-1 {
+  letter-spacing: 4.725px;
+}
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+.letter-spacing-3 {
+  letter-spacing: 2.362px;
+}
+
+/* colors */
+
+.bg-dark {
+  background-color: hsl(var(--clr-dark));
+}
+.bg-accent {
+  background-color: hsl(var(--clr-light));
+}
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.text-dark {
+  color: hsl(var(--clr-dark));
+}
+.text-accent {
+  color: hsl(var(--clr-light));
+}
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
