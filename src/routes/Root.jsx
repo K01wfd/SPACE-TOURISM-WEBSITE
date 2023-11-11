@@ -4,22 +4,15 @@ import logo from '../assets/shared/logo.svg';
 function Root() {
   return (
     <>
-      <header className='container primary-header d-flex'>
+      <header className='primary-header d-flex'>
         <div>
-          <img src={logo} alt='space tourism logo' />
+          <img src={logo} alt='space tourism logo' className='logo' />
         </div>
-        <button
-          className='primary-nav-toggle'
-          aria-controls='primary-navigation'
-        >
-          <span className='sr-only' aria-expanded='false'>
-            Menu
-          </span>
-        </button>
+
         <nav>
           <ul
             id='primary-navigation'
-            className='primary-navigation d-flex'
+            className='primary-navigation d-flex ff-sans-cond'
             data-visible='false'
           >
             <li>
