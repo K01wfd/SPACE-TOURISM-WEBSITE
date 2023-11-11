@@ -1,10 +1,50 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-
+import { Link, Outlet } from 'react-router-dom';
+import logo from '../assets/shared/logo.svg';
 function Root() {
   return (
     <>
-      <header>hello</header>
+      <header className='container primary-header d-flex'>
+        <div>
+          <img src={logo} alt='space tourism logo' />
+        </div>
+        <button
+          className='primary-nav-toggle'
+          aria-controls='primary-navigation'
+        >
+          <span className='sr-only' aria-expanded='false'>
+            Menu
+          </span>
+        </button>
+        <nav>
+          <ul
+            id='primary-navigation'
+            className='primary-navigation d-flex'
+            data-visible='false'
+          >
+            <li>
+              <Link to={'/'}>
+                <span aria-hidden='true'>00</span>Home
+              </Link>
+            </li>
+            <li>
+              <Link to={'/destination'}>
+                <span aria-hidden='true'>01</span>Destination
+              </Link>
+            </li>
+            <li>
+              <Link to={'/crew'}>
+                <span aria-hidden='true'>02</span>Crew
+              </Link>
+            </li>
+            <li>
+              <Link to={'/technology'}>
+                <span aria-hidden='true'>03</span>Technology
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <main>
         <Outlet />
       </main>
