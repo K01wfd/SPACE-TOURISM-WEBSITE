@@ -69,7 +69,7 @@ body {
   font-weight: 400;
   font-family: var(--ff-sans-normal);
   background: hsl(var(--clr-black));
-  color: var(--clr-white);
+  color: hsl(var(--clr-white));
 }
 
 /* this makes images easier to work with */
