@@ -1,0 +1,117 @@
+/* ------------------- */
+/* UTILS */
+/* ------------------- */
+.container {
+  padding-inline: 2rem;
+  margin-inline: auto;
+  max-width: 120.8rem;
+}
+.d-flex {
+  display: flex;
+  gap: var(--flex-g, 1rem);
+}
+.d-flex p {
+  max-width: 45ch;
+}
+.d-grid {
+  display: grid;
+  column-gap: var(--g-c-gap, 1rem);
+  row-gap: var(--g-r-gap, 1rem);
+}
+.d-block {
+  display: block;
+}
+/* LAYOUT FLOW */
+.flow-y > *:where(:not(:first-child)) {
+  margin-top: var(--flow-y-space, 1rem);
+}
+.flow-y--small {
+  --flow-y-space: 2.4rem;
+}
+.flow-y--medium {
+  --flow-y-space: 4.2rem;
+}
+.flow-y--large {
+  --flow-y-space: 5.6rem;
+}
+.flow-x > *:where(:not(:first-child)) {
+  margin-left: var(--flow-x-space, 1rem);
+}
+.flow-x--small {
+  --flow-x-space: 2.4rem;
+}
+.flow-x--medium {
+  --flow-x-space: 4.2rem;
+}
+.flow-x--large {
+  --flow-x-space: 5.6rem;
+}
+/* TYPOGRAPHY */
+.fs-900 {
+  font-size: var(--fs-900);
+}
+.fs-600-main {
+  font-size: var(--fs-600-main);
+}
+.fs-500-main {
+  font-size: var(--fs-500-main);
+}
+.fs-500-second {
+  font-size: var(--fs-500-second);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.ff-serif {
+  font-family: var(--ff-serif);
+}
+.ff-sans {
+  font-family: var(--ff-sans-normal);
+}
+.ff-sans-cond {
+  font-family: var(--ff-sans-cond);
+}
+.letter-spacing-1 {
+  letter-spacing: 4.725px;
+}
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+.letter-spacing-3 {
+  letter-spacing: 2.362px;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* colors */
+
+.bg-dark {
+  background-color: hsl(var(--clr-black));
+}
+.bg-accent {
+  background-color: hsl(var(--clr-blue-light));
+}
+.bg-white {
+  background-color: hsl(var(--clr-white));
+}
+
+.text-dark {
+  color: hsl(var(--clr-black));
+}
+.text-accent {
+  color: hsl(var(--clr-blue-light));
+}
+.text-white {
+  color: hsl(var(--clr-white));
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

@@ -1,0 +1,38 @@
+.home-section {
+  margin-top: 5rem;
+  align-items: center;
+}
+.home-section .explore-btn {
+  border: 0;
+  width: 27.4rem;
+  height: 27.4rem;
+  background-color: hsl(var(--clr-white));
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  margin-left: auto;
+}
+@media (max-width: 870px) {
+  .home-section {
+    margin-top: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-section * {
+    text-align: center;
+    margin-inline: auto;
+  }
+  .home-section .explore-btn {
+    width: 24.2rem;
+    height: 24.2rem;
+    margin-top: 10rem;
+  }
+}
+@media (max-width: 870px) {
+  .home-section .explore-btn {
+    width: 15rem;
+    height: 15rem;
+  }
+}
