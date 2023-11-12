@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import logo from '../assets/shared/logo.svg';
 
@@ -12,13 +12,22 @@ function Root() {
     page === background ? document.body.classList.add(background) : '';
   });
 
-  const activeLinks = document.querySelectorAll('.primary-navigation .active');
-  console.log(activeLinks);
-  activeLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.target.classList.add('active');
+  useEffect(() => {
+    const links = document.querySelectorAll('.primary-navigation a');
+    console.log(links);
+    links.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        let activeLinks = document.querySelectorAll(
+          '.primary-navigation .active'
+        );
+        activeLinks.forEach((activeLink) => {
+          activeLink.classList.remove('active');
+        });
+        link.classList.add('active');
+      });
     });
-  });
+  }, [background]);
+
   return (
     <>
       <header className='primary-header d-flex'>
