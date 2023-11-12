@@ -60,12 +60,20 @@ function Root() {
               </Link>
             </li>
             <li>
-              <Link to={'/crew'} className='uppercase letter-spacing-2'>
+              <Link
+                to={'/crew'}
+                onClick={() => setBackground('crew')}
+                className='uppercase letter-spacing-2'
+              >
                 <span aria-hidden='true'>02</span>Crew
               </Link>
             </li>
             <li>
-              <Link to={'/technology'} className='uppercase letter-spacing-2'>
+              <Link
+                to={'/technology'}
+                onClick={() => setBackground('technology')}
+                className='uppercase letter-spacing-2'
+              >
                 <span aria-hidden='true'>03</span>Technology
               </Link>
             </li>
