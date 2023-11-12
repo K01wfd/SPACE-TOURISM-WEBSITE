@@ -14,7 +14,6 @@ function Root() {
 
   useEffect(() => {
     const links = document.querySelectorAll('.primary-navigation a');
-    console.log(links);
     links.forEach((link) => {
       link.addEventListener('click', (e) => {
         let activeLinks = document.querySelectorAll(
@@ -34,6 +33,7 @@ function Root() {
         <div>
           <img src={logo} alt='space tourism logo' className='logo' />
         </div>
+        <div className='hr'></div>
         <button
           id='nav-toggler'
           className='mobile-nav-toggle'
@@ -46,7 +46,7 @@ function Root() {
         <nav>
           <ul
             id='primary-navigation'
-            className='primary-navigation d-flex underline-indicators'
+            className='primary-navigation d-flex underline-indicators ff-sans-cond'
             data-visible={dataVisible}
             aria-labelledby='nav-toggler'
           >
@@ -61,7 +61,7 @@ function Root() {
             </li>
             <li>
               <Link
-                to={'/destination'}
+                to={'/destinations'}
                 onClick={() => setBackground('destination')}
                 className='uppercase letter-spacing-2'
               >

@@ -2,7 +2,7 @@
 /* UTILS */
 /* ------------------- */
 .container {
-  padding-inline: 2rem;
+  padding-inline: 2.4rem;
   margin-inline: auto;
   max-width: 120.8rem;
 }
@@ -15,8 +15,8 @@
 }
 .d-grid {
   display: grid;
-  column-gap: var(--g-c-gap, 1rem);
-  row-gap: var(--g-r-gap, 1rem);
+  column-gap: var(--g-c-gap, 0);
+  row-gap: var(--g-r-gap, 0);
 }
 .d-block {
   display: block;
@@ -34,21 +34,13 @@
 .flow-y--large {
   --flow-y-space: 5.6rem;
 }
-.flow-x > *:where(:not(:first-child)) {
-  margin-left: var(--flow-x-space, 1rem);
-}
-.flow-x--small {
-  --flow-x-space: 2.4rem;
-}
-.flow-x--medium {
-  --flow-x-space: 4.2rem;
-}
-.flow-x--large {
-  --flow-x-space: 5.6rem;
-}
+
 /* TYPOGRAPHY */
 .fs-900 {
   font-size: var(--fs-900);
+}
+.fs-800 {
+  font-size: var(--fs-800);
 }
 .fs-600-main {
   font-size: var(--fs-600-main);
@@ -114,4 +106,14 @@
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+.hr {
+  width: clamp(35%, 15vw, 70%);
+  height: 1px;
+  background-color: hsl(var(--clr-white) / 0.3);
+  position: relative;
+  margin-right: var(--hr-right-margin, 0);
+  position: absolute;
+  z-index: 1000;
+  left: 10%;
 }

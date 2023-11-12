@@ -4,7 +4,7 @@ import './styles/base.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
 import ErrorPage from './routes/ErrorPage';
-import Destination from './routes/Destination';
+import Destinations from './routes/Destinations';
 import Crew from './routes/Crew';
 import Technology from './routes/Technology';
 import Home from './routes/Home';
@@ -20,8 +20,8 @@ const route = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/destination',
-        element: <Destination />,
+        path: '/destinations',
+        element: <Destinations />,
       },
       {
         path: '/crew',
