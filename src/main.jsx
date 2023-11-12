@@ -7,6 +7,7 @@ import ErrorPage from './routes/ErrorPage';
 import Destination from './routes/Destination';
 import Crew from './routes/Crew';
 import Technology from './routes/Technology';
+import Home from './routes/Home';
 
 const route = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const route = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: '/',
+        element: <Home />,
+      },
       {
         path: '/destination',
         element: <Destination />,
