@@ -194,7 +194,7 @@ span {
 }
 
 /* ------------------- */
-/* HEADER */
+/* HEADER DESKTOP */
 /* ------------------- */
 .primary-header {
   padding-block: 2.5rem;
@@ -213,7 +213,8 @@ span {
   list-style: none;
   padding-inline: clamp(4.8rem, 7svw, 16.7rem);
   background-color: hsl(var(--clr-white) / 0.05);
-  backdrop-filter: blur(1.2rem);
+  --webkit-backdrop-filter: blur(2.4rem);
+  backdrop-filter: blur(2.4rem);
   font-family: var(--ff-sans-cond);
   position: relative;
 }
@@ -240,7 +241,9 @@ span {
 }
 .underline-indicators a {
   cursor: pointer;
-  border-bottom: 3px solid hsl(var(--clr-white) / 0);
+  border: 0;
+  border-bottom: 0.3rem solid hsl(var(--clr-white) / 0);
+  background-color: transparent;
   transition: all 0.2s ease-in;
 }
 .underline-indicators a:hover,
@@ -250,6 +253,7 @@ span {
 .underline-indicators a.active {
   border-color: hsl(var(--clr-white));
 }
+/* HEADER TABLET */
 @media (max-width: 870px) {
   .primary-header {
     padding-block: 0;
@@ -263,12 +267,13 @@ span {
     display: none;
   }
 }
-
-@media (max-width: 670px) {
-  .primary-navigation {
-    position: fixed;
-    transform: translateX(100%);
+@media (min-width: 670px) and (max-width: 870px) {
+  .primary-navigation a > span {
+    display: none;
   }
+}
+/* HEADER MOBILE */
+@media (max-width: 670px) {
   .mobile-nav-toggle {
     display: block;
     position: absolute;
@@ -283,13 +288,34 @@ span {
     aspect-ratio: 1;
     border: 0;
   }
-  .mobile-nav-toggle [aria-expanded='true'] {
-    background-image: none;
+  .mobile-nav-toggle[aria-expanded='true'] {
+    background-image: url('../assets/shared/icon-close.svg');
   }
 
   .mobile-nav-toggle:focus-visible {
     outline: 5px solid white;
     outline-offset: 5px;
+  }
+  .primary-navigation {
+    position: fixed;
+    transform: translateX(100%);
+    z-index: 1000;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+    padding-inline: 0;
+    transition: all 0.2s;
+    padding: min(20rem, 15vh) 5.2rem;
+    height: 100%;
+  }
+  .primary-navigation.underline-indicators a {
+    border: none;
+    padding-block: 1.8rem;
+  }
+
+  .primary-navigation[data-visible='true'] {
+    transform: translateX(0);
+    right: 0;
   }
 }
 /* LAYOUTS */
@@ -300,13 +326,12 @@ span {
 @media (max-width: 870px) {
   .home {
     background-image: url('../assets/home/background-home-tablet.jpg');
+    background-position: center center;
   }
 }
 @media (max-width: 670px) {
   .home {
     background-image: url('../assets/home/background-home-mobile.jpg');
-    background-position: bottom;
-    background-attachment: fixed;
   }
 }
 /* ------------------- */
