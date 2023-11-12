@@ -73,6 +73,7 @@ body {
   color: hsl(var(--clr-white));
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: top;
 }
 
 /* this makes images easier to work with */
@@ -321,17 +322,25 @@ span {
 /* LAYOUTS */
 .home {
   background-image: url('../assets/home/background-home-desktop.jpg');
-  background-position: top;
+}
+.destination {
+  background-image: url('../assets/destination/background-destination-desktop.jpg');
 }
 @media (max-width: 870px) {
   .home {
     background-image: url('../assets/home/background-home-tablet.jpg');
     background-position: center center;
   }
+  .destination {
+    background-image: url('../assets/destination/background-destination-tablet.jpg');
+  }
 }
 @media (max-width: 670px) {
   .home {
     background-image: url('../assets/home/background-home-mobile.jpg');
+  }
+  .destination {
+    background-image: url('../assets/destination/background-destination-mobile.jpg');
   }
 }
 /* ------------------- */

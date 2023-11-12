@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import logo from '../assets/shared/logo.svg';
+
+const pages = ['home', 'destination', 'crew', 'technology'];
 function Root() {
   const [background, setBackground] = useState('home');
   const [dataVisible, setDataisible] = useState(false);
-  console.log(dataVisible);
-  document.body.classList.add(background);
+
+  pages.forEach((page) => {
+    document.body.classList.remove(page);
+    page === background ? document.body.classList.add(background) : '';
+  });
+
+  const activeLinks = document.querySelectorAll('.primary-navigation .active');
+  console.log(activeLinks);
+  activeLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.target.classList.add('active');
+    });
+  });
   return (
     <>
       <header className='primary-header d-flex'>
@@ -29,12 +42,20 @@ function Root() {
             aria-labelledby='nav-toggler'
           >
             <li>
-              <Link to={'/'} className='uppercase letter-spacing-2 active'>
+              <Link
+                to={'/'}
+                onClick={() => setBackground('home')}
+                className='uppercase letter-spacing-2 active'
+              >
                 <span aria-hidden='true'>00</span>Home
               </Link>
             </li>
             <li>
-              <Link to={'/destination'} className='uppercase letter-spacing-2'>
+              <Link
+                to={'/destination'}
+                onClick={() => setBackground('destination')}
+                className='uppercase letter-spacing-2'
+              >
                 <span aria-hidden='true'>01</span>Destination
               </Link>
             </li>
