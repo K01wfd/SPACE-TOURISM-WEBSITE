@@ -30,7 +30,7 @@ function Destination(props) {
         tabIndex={tabIndex}
         role='tabpanel'
       >
-        <h2 className='fs-800 uppercase ff-serif '>{title}</h2>
+        <h2 className='uppercase ff-serif'>{title}</h2>
         <p className='text-accent'>{details}</p>
         <div className='hr-dest'></div>
         <div className='destination-meta d-flex '>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { data } from '../data.js';
 import moonWebp from '../assets/destination/image-moon.webp';
 import moonPng from '../assets/destination/image-moon.png';
@@ -11,17 +11,30 @@ import titanPng from '../assets/destination/image-titan.png';
 import Destination from './Destination.jsx';
 function Destinations() {
   const [currentDest, setCurrentDest] = useState('moon');
+
   const destImages = [
     { dest: 'moon', png: moonPng, webp: moonWebp },
     { dest: 'mars', png: marsPng, webp: marsWebp },
     { dest: 'europa', png: europaPng, webp: europaWebp },
     { dest: 'titan', png: titanPng, webp: titanWebp },
   ];
-  const tabs = document.querySelectorAll("button[role='tab']");
-  console.log(tabs);
-  tabs.forEach((tab) => {});
+  useEffect(() => {
+    const tabs = document.querySelectorAll("button[role='tab']");
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', (e) => {
+        let tabsWithActive = document.querySelectorAll('.activeTab');
+        tabsWithActive.forEach((activeTab) => {
+          activeTab.classList.remove('activeTab');
+          activeTab.setAttribute('aria-selected', false);
+        });
+
+        e.target.classList.add('activeTab');
+        e.target.setAttribute('aria-selected', true);
+      });
+    });
+  }, [currentDest]);
   return (
-    <section className='container destinations-section d-grid destination-grid flow-y '>
+    <section className='container destinations-section d-grid destination-grid flow-y'>
       <h1 className='uppercase ff-sans-cond letter-spacing-1 fs-500-second numbered-title'>
         <span aria-hidden='true'>01</span>Pick your destination
       </h1>

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import logo from './assets/shared/logo.svg';
-import Home from './routes/Home';
+import Home from './components/Home';
+import Destinations from './components/Destinations';
 
 function App() {
-  const pages = ['home', 'destinations', 'crew', 'technology'];
+  const pages = ['home', 'destination', 'crew', 'technology'];
   const [background, setBackground] = useState('home');
   const [dataVisible, setDataisible] = useState(false);
 
@@ -14,23 +15,23 @@ function App() {
 
   useEffect(() => {
     const links = document.querySelectorAll('.primary-navigation a');
-    links.forEach((link) => {
-      link.addEventListener('click', (e) => {
-        let activeLinks = document.querySelectorAll('.active');
-        activeLinks.forEach((activeLink) => {
-          activeLink.classList.remove('active');
-        });
-        link.classList.add('active');
+    const activeLinks = document.querySelectorAll('.active');
+
+    links.forEach((link, i) => {
+      activeLinks.forEach((activeLink) => {
+        activeLink.classList.remove('active');
       });
+      if (background === link.dataset.id) {
+        link.classList.add('active');
+      }
     });
   }, [background]);
   return (
     <>
-      <header className='primary-header d-flex fs-300-main'>
+      <header className='primary-header d-flex'>
         <div>
           <img src={logo} alt='space tourism logo' className='logo' />
         </div>
-        <div className='hr'></div>
         <button
           id='nav-toggler'
           className='mobile-nav-toggle'
@@ -43,7 +44,7 @@ function App() {
         <nav>
           <ul
             id='primary-navigation'
-            className='primary-navigation d-flex underline-indicators ff-sans-cond fs-300-main'
+            className='primary-navigation d-flex ff-sans-cond'
             data-visible={dataVisible}
             aria-labelledby='nav-toggler'
           >
@@ -52,6 +53,7 @@ function App() {
                 href='#'
                 onClick={() => setBackground('home')}
                 className='uppercase letter-spacing-2 active'
+                data-id='home'
               >
                 <span aria-hidden='true'>00</span>Home
               </a>
@@ -59,8 +61,9 @@ function App() {
             <li>
               <a
                 href='#'
-                onClick={() => setBackground('destination')}
+                onClick={(e) => setBackground('destination')}
                 className='uppercase letter-spacing-2'
+                data-id='destination'
               >
                 <span aria-hidden='true'>01</span>Destination
               </a>
@@ -70,6 +73,7 @@ function App() {
                 href='#'
                 onClick={() => setBackground('crew')}
                 className='uppercase letter-spacing-2'
+                data-id='crew'
               >
                 <span aria-hidden='true'>02</span>Crew
               </a>
@@ -79,6 +83,7 @@ function App() {
                 href='#'
                 onClick={() => setBackground('technology')}
                 className='uppercase letter-spacing-2'
+                data-id='technology'
               >
                 <span aria-hidden='true'>03</span>Technology
               </a>
@@ -86,7 +91,12 @@ function App() {
           </ul>
         </nav>
       </header>
-      <main>{background === 'home' && <Home />}</main>
+      <main>
+        {background === 'home' && (
+          <Home onExplore={() => setBackground('destination')} />
+        )}{' '}
+        {background === 'destination' && <Destinations />}
+      </main>
     </>
   );
 }
