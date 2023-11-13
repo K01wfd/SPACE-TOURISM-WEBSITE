@@ -21,7 +21,7 @@ function Destination(props) {
           type='image/webp'
         />
 
-        <img src={imagePng} alt='the moon' />
+        <img src={imagePng} alt={title + 'image'} />
       </picture>
 
       <article

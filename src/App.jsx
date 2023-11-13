@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './assets/shared/logo.svg';
 import Home from './components/Home';
 import Destinations from './components/Destinations';
+import Crew from './components/Crew';
 
 function App() {
   const pages = ['home', 'destination', 'crew', 'technology'];
@@ -96,6 +97,7 @@ function App() {
           <Home onExplore={() => setBackground('destination')} />
         )}{' '}
         {background === 'destination' && <Destinations />}
+        {background === 'crew' && <Crew />}
       </main>
     </>
   );

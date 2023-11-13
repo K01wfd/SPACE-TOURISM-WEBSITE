@@ -116,16 +116,15 @@ span {
   display: inline-block;
 }
 section {
-  min-height: 70vh;
+  height: 75vh;
 }
-
 /* ------------------- */
 /* UTILS */
 /* ------------------- */
 .container {
   padding-inline: 2.4rem;
   margin-inline: auto;
-  max-width: 120.8rem;
+  max-width: 125.8rem;
 }
 .d-flex {
   display: flex;
@@ -504,6 +503,47 @@ section {
   }
 }
 
+/* -------------- */
+/* Crew section */
+/* --------------- */
+
+.crew-grid {
+  grid-template-columns: 1fr auto;
+  grid-template-areas: 'numberedTitle image' 'article image' 'dotList image';
+}
+.crew-section {
+  padding-top: 3rem;
+}
+.crew-section h1 {
+  grid-area: numberedTitle;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+.crew-section p {
+  max-width: 50ch;
+}
+.dot-indicators {
+  grid-area: dotList;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+.crew-details {
+  justify-self: flex-start;
+  align-self: flex-start;
+}
+.crew-details h2 {
+  font-size: var(--fs-600-main);
+  opacity: 0.5;
+}
+.crew-details header p {
+  font-size: var(--fs-700);
+}
+.crew-section picture {
+  grid-area: image;
+  max-width: 450px;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
 /* LAYOUTS */
 .home {
   background-image: url('./assets/home/background-home-desktop.jpg');
