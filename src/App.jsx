@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import logo from '../assets/shared/logo.svg';
+import logo from './assets/shared/logo.svg';
+import Home from './routes/Home';
 
-const pages = ['home', 'destination', 'crew', 'technology'];
-function Root() {
+function App() {
+  const pages = ['home', 'destinations', 'crew', 'technology'];
   const [background, setBackground] = useState('home');
   const [dataVisible, setDataisible] = useState(false);
 
@@ -16,9 +16,7 @@ function Root() {
     const links = document.querySelectorAll('.primary-navigation a');
     links.forEach((link) => {
       link.addEventListener('click', (e) => {
-        let activeLinks = document.querySelectorAll(
-          '.primary-navigation .active'
-        );
+        let activeLinks = document.querySelectorAll('.active');
         activeLinks.forEach((activeLink) => {
           activeLink.classList.remove('active');
         });
@@ -26,10 +24,9 @@ function Root() {
       });
     });
   }, [background]);
-
   return (
     <>
-      <header className='primary-header d-flex'>
+      <header className='primary-header d-flex fs-300-main'>
         <div>
           <img src={logo} alt='space tourism logo' className='logo' />
         </div>
@@ -46,54 +43,52 @@ function Root() {
         <nav>
           <ul
             id='primary-navigation'
-            className='primary-navigation d-flex underline-indicators ff-sans-cond'
+            className='primary-navigation d-flex underline-indicators ff-sans-cond fs-300-main'
             data-visible={dataVisible}
             aria-labelledby='nav-toggler'
           >
             <li>
-              <Link
-                to={'/'}
+              <a
+                href='#'
                 onClick={() => setBackground('home')}
                 className='uppercase letter-spacing-2 active'
               >
                 <span aria-hidden='true'>00</span>Home
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to={'/destinations'}
+              <a
+                href='#'
                 onClick={() => setBackground('destination')}
                 className='uppercase letter-spacing-2'
               >
                 <span aria-hidden='true'>01</span>Destination
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to={'/crew'}
+              <a
+                href='#'
                 onClick={() => setBackground('crew')}
                 className='uppercase letter-spacing-2'
               >
                 <span aria-hidden='true'>02</span>Crew
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                to={'/technology'}
+              <a
+                href='#'
                 onClick={() => setBackground('technology')}
                 className='uppercase letter-spacing-2'
               >
                 <span aria-hidden='true'>03</span>Technology
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
       </header>
-      <main>
-        <Outlet />
-      </main>
+      <main>{background === 'home' && <Home />}</main>
     </>
   );
 }
 
-export default Root;
+export default App;

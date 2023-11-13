@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -17,9 +16,9 @@ function Home() {
         </p>
       </div>
 
-      <Link className='explore-btn uppercase ff-serif fs-600-main '>
+      <a href='#' className='explore-btn uppercase ff-serif fs-600-main '>
         Explore
-      </Link>
+      </a>
     </section>
   );
 }

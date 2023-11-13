@@ -32,7 +32,6 @@
   border-bottom: 0.3rem solid hsl(var(--clr-white) / 0);
   background-color: transparent;
   transition: all 0.2s ease-in;
-  font-size: var(--fs-300-main);
   color: hsl(var(--clr-white));
   padding-block: var(--underline-gap, 3rem);
 }
@@ -42,6 +41,9 @@
 }
 .underline-indicators a.active {
   border-color: hsl(var(--clr-white));
+}
+.mobile-nav-toggle {
+  opacity: 0;
 }
 /* HEADER TABLET */
 @media (max-width: 870px) {
@@ -74,6 +76,7 @@
     width: 2.4rem;
     aspect-ratio: 1;
     border: 0;
+    opacity: 1;
   }
   .mobile-nav-toggle[aria-expanded='true'] {
     background-image: url('../assets/shared/icon-close.svg');
@@ -84,6 +87,7 @@
     outline-offset: 5px;
   }
   .primary-navigation {
+    top: -2rem;
     position: fixed;
     transform: translateX(100%);
     z-index: 1000;

@@ -17,9 +17,12 @@ function Destinations() {
     { dest: 'europa', png: europaPng, webp: europaWebp },
     { dest: 'titan', png: titanPng, webp: titanWebp },
   ];
+  const tabs = document.querySelectorAll("button[role='tab']");
+  console.log(tabs);
+  tabs.forEach((tab) => {});
   return (
     <section className='container destinations-section d-grid destination-grid flow-y '>
-      <h1 className='uppercase ff-sans-cond letter-spacing-1 fs-500-second'>
+      <h1 className='uppercase ff-sans-cond letter-spacing-1 fs-500-second numbered-title'>
         <span aria-hidden='true'>01</span>Pick your destination
       </h1>
       <div
@@ -31,7 +34,7 @@ function Destinations() {
           aria-selected='true'
           role='tab'
           aria-controls='moon-tab'
-          className='uppercase ff-sans-cond text-accent letter-spacing-2'
+          className='uppercase ff-sans-cond text-accent letter-spacing-2 fs-300-main activeTab'
           tabIndex='0'
           onClick={() => setCurrentDest('moon')}
         >
@@ -41,7 +44,7 @@ function Destinations() {
           aria-selected='false'
           role='tab'
           aria-controls='mars-tab'
-          className='uppercase ff-sans-cond text-accent letter-spacing-2'
+          className='uppercase ff-sans-cond text-accent letter-spacing-2 fs-300-main'
           tabIndex='1'
           onClick={() => setCurrentDest('mars')}
         >
@@ -51,7 +54,7 @@ function Destinations() {
           aria-selected='false'
           role='tab'
           aria-controls='europa-tab'
-          className='uppercase ff-sans-cond text-accent letter-spacing-2'
+          className='uppercase ff-sans-cond text-accent letter-spacing-2 fs-300-main'
           tabIndex='2'
           onClick={() => setCurrentDest('europa')}
         >
@@ -61,7 +64,7 @@ function Destinations() {
           aria-selected='false'
           role='tab'
           aria-controls='titan-tab'
-          className='uppercase ff-sans-cond text-accent letter-spacing-2'
+          className='uppercase ff-sans-cond text-accent letter-spacing-2 fs-300-main'
           tabIndex='3'
           onClick={() => setCurrentDest('titan')}
         >

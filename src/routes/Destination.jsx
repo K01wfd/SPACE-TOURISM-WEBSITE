@@ -31,9 +31,9 @@ function Destination(props) {
         role='tabpanel'
       >
         <h2 className='fs-800 uppercase ff-serif '>{title}</h2>
-        <p>{details}</p>
+        <p className='text-accent'>{details}</p>
         <div className='hr-dest'></div>
-        <div className='destination-meta d-flex'>
+        <div className='destination-meta d-flex '>
           <div>
             <h3 className='text-accent fs-200 uppercase'>Avg. distance</h3>
             <p className='ff-serif uppercase'>{metaDistance}</p>
