@@ -94,7 +94,7 @@ function Crew() {
               role='tabpanel'
               tabIndex={i}
             >
-              <header className='flow flow--space-small'>
+              <header className='flow-y'>
                 <h2 className='ff-serif uppercase'>{crewItem.role}</h2>
                 <p className='uppercase ff-serif'>{crewItem.name}</p>
               </header>

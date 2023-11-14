@@ -85,6 +85,7 @@ export const data = {
   ],
   technology: [
     {
+      id: 'launchvehicle',
       name: 'Launch vehicle',
       images: {
         portrait: './assets/technology/image-launch-vehicle-portrait.jpg',
@@ -94,6 +95,7 @@ export const data = {
         "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
     },
     {
+      id: 'spaceport',
       name: 'Spaceport',
       images: {
         portrait: './assets/technology/image-spaceport-portrait.jpg',
@@ -103,7 +105,8 @@ export const data = {
         'A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.',
     },
     {
-      name: 'Space capsule',
+      id: 'spacecapsule',
+      name: 'Space Capsule',
       images: {
         portrait: './assets/technology/image-space-capsule-portrait.jpg',
         landscape: './assets/technology/image-space-capsule-landscape.jpg',

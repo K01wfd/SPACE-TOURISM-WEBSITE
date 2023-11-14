@@ -3,6 +3,7 @@ import logo from './assets/shared/logo.svg';
 import Home from './components/Home';
 import Destinations from './components/Destinations';
 import Crew from './components/Crew';
+import Technology from './components/Technology';
 
 function App() {
   const pages = ['home', 'destination', 'crew', 'technology'];
@@ -98,6 +99,7 @@ function App() {
         )}{' '}
         {background === 'destination' && <Destinations />}
         {background === 'crew' && <Crew />}
+        {background === 'technology' && <Technology />}
       </main>
     </>
   );
