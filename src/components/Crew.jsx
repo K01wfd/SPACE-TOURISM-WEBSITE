@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { data } from '../data.js';
 import douglasPng from '../assets/crew/image-douglas-hurley.png';
 import douglasWebp from '../assets/crew/image-douglas-hurley.webp';
@@ -16,6 +16,21 @@ function Crew() {
     { person: 'victor glover', png: victorPng, webp: victorWebp },
     { person: 'anousheh ansari', png: anoushehPng, webp: anoushehWebp },
   ];
+
+  useEffect(() => {
+    const dots = document.querySelectorAll('.dot-indicators button');
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const activeDots = document.querySelectorAll('.activeDot');
+        activeDots.forEach((activeDot) => {
+          activeDot.classList.remove('activeDot');
+          activeDot.setAttribute('aria-selected', false);
+        });
+        dot.classList.add('activeDot');
+        dot.setAttribute('aria-selected', true);
+      });
+    });
+  });
   return (
     <section className='container crew-section d-grid crew-grid'>
       <h1 className='numbered-title ff-sans-cond letter-spacing-1 uppercase'>
@@ -28,6 +43,7 @@ function Crew() {
         aria-label='crew member list'
       >
         <button
+          className='activeDot'
           aria-selected='true'
           aria-controls='commander-tab'
           role='tab'
@@ -42,7 +58,7 @@ function Crew() {
           aria-controls='mission-tab'
           role='tab'
           data-image='mission-image'
-          tabIndex='-1'
+          tabIndex='1'
           onClick={() => setCurrentCrew('mark shuttleworth')}
         >
           <span className='sr-only'>The mission specialist</span>
@@ -52,7 +68,7 @@ function Crew() {
           aria-controls='pilot-tab'
           role='tab'
           data-image='pilot-image'
-          tabIndex='-1'
+          tabIndex='2'
           onClick={() => setCurrentCrew('victor glover')}
         >
           <span className='sr-only'>The pilot</span>
@@ -62,7 +78,7 @@ function Crew() {
           aria-controls='crew-tab'
           role='tab'
           data-image='crew-image'
-          tabIndex='-1'
+          tabIndex='3'
           onClick={() => setCurrentCrew('anousheh ansari')}
         >
           <span className='sr-only'>The crew engineer</span>

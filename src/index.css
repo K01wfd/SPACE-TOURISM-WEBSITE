@@ -65,7 +65,6 @@ html {
 /* body setup */
 body {
   line-height: 1.5;
-  min-height: 100vh;
   font-size: var(--fs-400);
   font-weight: 400;
   font-family: var(--ff-sans-normal);
@@ -116,7 +115,7 @@ span {
   display: inline-block;
 }
 section {
-  height: 75vh;
+  min-height: 75vh;
 }
 /* ------------------- */
 /* UTILS */
@@ -409,7 +408,7 @@ section {
 .numbered-title span {
   font-weight: 700;
   opacity: 0.25;
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 .tab-list {
   grid-column: 2 / span 1;
@@ -508,28 +507,41 @@ section {
 /* --------------- */
 
 .crew-grid {
-  grid-template-columns: 1fr auto;
   grid-template-areas: 'numberedTitle image' 'article image' 'dotList image';
+  align-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 .crew-section {
   padding-top: 3rem;
 }
-.crew-section h1 {
+.crew-section .numbered-title {
   grid-area: numberedTitle;
   justify-self: flex-start;
-  align-self: flex-start;
 }
 .crew-section p {
   max-width: 50ch;
 }
 .dot-indicators {
   grid-area: dotList;
-  justify-self: flex-start;
-  align-self: flex-start;
 }
+.dot-indicators button {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: hsl(var(--clr-white) / 0.25);
+  border: 0;
+}
+.dot-indicators button:hover {
+  background: hsl(var(--clr-white) / 0.5);
+}
+.dot-indicators button.activeDot,
+.dot-indicators button:focus-visible {
+  background: hsl(var(--clr-white) / 1);
+}
+
 .crew-details {
-  justify-self: flex-start;
-  align-self: flex-start;
 }
 .crew-details h2 {
   font-size: var(--fs-600-main);
@@ -540,9 +552,35 @@ section {
 }
 .crew-section picture {
   grid-area: image;
-  max-width: 450px;
-  justify-self: flex-end;
-  align-self: flex-end;
+  max-width: 80%;
+  justify-self: center;
+}
+@media (max-width: 870px) {
+  .crew-grid {
+    grid-template-areas: 'numberedTitle' 'article' 'dotList' 'image';
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    row-gap: 4rem;
+  }
+  .crew-section {
+    text-align: center;
+  }
+  .dot-indicators button {
+    width: 10px;
+    height: 10px;
+  }
+  .crew-section picture {
+    grid-area: image;
+    max-width: 60%;
+    justify-self: center;
+    align-self: flex-end;
+  }
+}
+@media (max-width: 670px) {
+  .crew-section .numbered-title {
+    justify-self: center;
+  }
 }
 /* LAYOUTS */
 .home {
