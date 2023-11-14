@@ -174,16 +174,7 @@ section {
 .bg-dark {
   background-color: hsl(var(--clr-black));
 }
-.bg-accent {
-  background-color: hsl(var(--clr-blue-light));
-}
-.bg-white {
-  background-color: hsl(var(--clr-white));
-}
 
-.text-dark {
-  color: hsl(var(--clr-black));
-}
 .text-accent {
   color: hsl(var(--clr-blue-light));
 }
