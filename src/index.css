@@ -121,7 +121,7 @@ section {
 /* UTILS */
 /* ------------------- */
 .container {
-  padding-inline: 2.4rem;
+  padding-inline: var(--container-gap, 2.4rem);
   margin-inline: auto;
   max-width: 125.8rem;
 }
@@ -332,7 +332,7 @@ section {
 /* Home Section */
 /* -------------- */
 .home-section {
-  margin-top: 5rem;
+  margin-top: 2rem;
   align-items: center;
 }
 .home-details p:first-of-type {
@@ -552,7 +552,7 @@ section {
 }
 .crew-section picture {
   grid-area: image;
-  max-width: 80%;
+  max-width: 70%;
   justify-self: center;
 }
 @media (max-width: 870px) {

@@ -15,11 +15,7 @@ function Destination(props) {
     <>
       <picture>
         <source media='(max-width: 870px)' srcSet={imagePng} type='image/png' />
-        <source
-          media='(min-width: 871px)'
-          srcSet={imageWebp}
-          type='image/webp'
-        />
+        <source srcSet={`${imageWebp} 870w`} type='image/webp' />
 
         <img src={imagePng} alt={title + 'image'} />
       </picture>

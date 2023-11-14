@@ -32,7 +32,7 @@ function Crew() {
     });
   });
   return (
-    <section className='container crew-section d-grid crew-grid'>
+    <section className='container crew-section d-grid crew-grid flow-y'>
       <h1 className='numbered-title ff-sans-cond letter-spacing-1 uppercase'>
         <span aria-hidden='true'>02</span> Meet your crew
       </h1>
@@ -90,7 +90,7 @@ function Crew() {
             <article
               key={crewItem.name}
               className='crew-details flow-y'
-              id='commander-tab'
+              id={crewItem.role + 'tab'}
               role='tabpanel'
               tabIndex={i}
             >
@@ -108,8 +108,7 @@ function Crew() {
             <picture key={obj.person + 'picture'}>
               <source
                 key={obj.person + 'key'}
-                media='(min-width: 871px)'
-                srcSet={obj.webp}
+                srcSet={`${obj.webp} 870w`}
                 type='image/webp'
               />
               <img src={obj.png} alt={obj.person + 'image'} />
