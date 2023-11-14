@@ -107,8 +107,13 @@ function Crew() {
           obj.person === currentCrew && (
             <picture key={obj.person + 'picture'}>
               <source
-                key={obj.person + 'key'}
-                srcSet={`${obj.webp} 870w`}
+                media='(max-width: 870px)'
+                srcSet={obj.png}
+                type='image/webp'
+              />
+              <source
+                media='(min-width: 871px)'
+                srcSet={obj.webp}
                 type='image/webp'
               />
               <img src={obj.png} alt={obj.person + 'image'} />
